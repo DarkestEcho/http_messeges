@@ -1,0 +1,36 @@
+﻿@model IEnumerable<MessageStore.Models.Message>
+
+@{
+    ViewData["Title"] = "Сообщения";
+}
+
+<h1>Сообщения</h1>
+
+<p>
+    <a asp-action="Send">Создать новое сообщение</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Текст
+            </th>
+            <th>
+                Дата
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Text)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Date)
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
